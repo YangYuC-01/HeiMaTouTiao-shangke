@@ -4,6 +4,32 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    component: () => import('@/views/Layout'),
+    redirect: '/home',
+    children: [
+      {
+        path: 'home',
+        component: () => import('@/views/Home')
+      },
+      {
+        path: 'video',
+        component: () => import('@/views/video')
+      },
+      {
+        path: 'qa',
+        component: () => import('@/views/qa')
+      }, {
+        path: 'my',
+        component: () => import('@/views/my')
+      }
+    ]
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/Login')
+  }
 
 ]
 
