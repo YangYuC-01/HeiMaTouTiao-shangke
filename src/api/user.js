@@ -11,3 +11,9 @@ export const login = data => request({
   url: '/v1_0/authorizations',
   data
 })
+
+// 获取用户自己信息
+export const userInfo = () => request({
+  method: 'GET',
+  url: '/v1_0/user'
+})

@@ -22,12 +22,14 @@ const routes = [
         component: () => import('@/views/qa')
       }, {
         path: 'my',
+        name: 'my',
         component: () => import('@/views/my')
       }
     ]
   },
   {
     path: '/login',
+    name: 'login',
     component: () => import('@/views/Login')
   }
 

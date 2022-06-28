@@ -10,6 +10,12 @@ import 'vant/lib/index.less'
 import 'amfe-flexible'
 
 import '@/styles/icon.less'
+import '@/styles/base.css'
+import '@/styles/index.css'
+
+// 全局图标组件
+import TI from '@/components/Hmicon.vue'
+Vue.component('TI', TI)
 
 Vue.use(Vant)
 Vue.config.productionTip = false

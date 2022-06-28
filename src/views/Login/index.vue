@@ -1,6 +1,6 @@
 <template>
   <div class="login-content">
-    <van-nav-bar title="登录">
+    <van-nav-bar title="登录" @click-left="$router.back()">
       <template #left>
         <i class="toutiao toutiao-guanbi"></i>
       </template>
@@ -21,7 +21,8 @@
         placeholder="请输入手机号"
         :rules="[{ required: true, message: '请输入验证码' },{pattern: /^\d{6}$/,message:'验证码格式不正确'}]"
       >
-        <i slot="label" class="toutiao toutiao-yanzhengma"></i>
+        <!-- <i slot="label" class="toutiao toutiao-yanzhengma"></i> -->
+        <TI name="yanzhengma" slot="label"></TI>
         <template #button>
           <van-button
             size="small"
@@ -32,7 +33,12 @@
             @click="sendSms"
             :disabled="isCountDownShow"
           >
-            <van-count-down :time="time" format="ss s" v-if="isCountDownShow" @finish="isCountDownShow = false"/>
+            <van-count-down
+              :time="time"
+              format="ss s"
+              v-if="isCountDownShow"
+              @finish="isCountDownShow = false"
+            />
             <span v-else>发送验证码</span>
           </van-button>
         </template>
@@ -63,6 +69,7 @@ export default {
         // console.log(data)
         this.$store.commit('setUser', data.data)
         this.$toast.success('登录成功')
+        this.$router.push({ name: 'my' })
       } catch (err) {
         this.$toast.fail('登录失败，请稍后重试')
         console.log(err)
